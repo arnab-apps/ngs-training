@@ -67,4 +67,6 @@ head(sort(table(gdc_bot_data %>% filter(Variant_Classification != "Silent") %>%
   filter(Variant_Classification != "Intron") %>% select(Hugo_Symbol)
 ), decreasing = T), 20)
 
-
+# Exploration of type of somatic mutations in top recurrently mutated gene
+gdc_bot_data %>% filter(Hugo_Symbol == "TP53") %>% 
+  select(Hugo_Symbol, Variant_Classification, HGVSp_Short, Tumor_Sample_Barcode)
