@@ -8,7 +8,7 @@ setwd("C:/Users/ghosh/Downloads")
 tar_gz_file = "gdc_download_20240109_134313.650403.tar.gz"
 
 # Uncompress the downloaded data in 
-untar("gdc_download_20240108_131437.776735.tar.gz", exdir = "gdc_data")
+untar(tar_gz_file, exdir = "gdc_data")
 
 # Read mutation data in a data frame
 mut_data = read.table(list.files(path = "gdc_data", pattern = ".gz$",full.names = T, recursive = T)[1],
