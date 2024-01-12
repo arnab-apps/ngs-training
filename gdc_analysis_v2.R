@@ -70,3 +70,8 @@ head(sort(table(gdc_bot_data %>% filter(Variant_Classification != "Silent") %>%
 # Exploration of type of somatic mutations in top recurrently mutated gene
 gdc_bot_data %>% filter(Hugo_Symbol == "TP53") %>% 
   select(Hugo_Symbol, Variant_Classification, HGVSp_Short, Tumor_Sample_Barcode)
+
+# Export TP53 protein change data
+write.table(gdc_bot_data %>% filter(Hugo_Symbol == "TP53") %>% 
+              select(Hugo_Symbol, HGVSp_Short), file="gdc_bot_tp53.txt", 
+            row.names = F, quote = F, col.names = c("Hugo_Symbol", "Protein_Change"))
